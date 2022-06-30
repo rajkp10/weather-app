@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SearchArea from "./components/SearchArea";
+import WeatherArea from "./components/WeatherArea";
+import { VStack } from "@chakra-ui/react";
+import { useGlobalContext } from "./assets/context";
 
 function App() {
+  const { weather } = useGlobalContext();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <VStack p={4} minH="100vh" w="100%" justifyContent="center" bg="#E6EFE9">
+      <VStack
+        w={{ base: "90vw", sm: "80vw", md: "70vw", lg: "40vw" }}
+        p="5"
+        bg="#C8D3D5"
+        borderRadius="2xl"
+        boxShadow="base"
+      >
+        <SearchArea />
+        {weather && <WeatherArea />}
+      </VStack>
+    </VStack>
   );
 }
 
