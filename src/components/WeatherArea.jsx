@@ -14,12 +14,23 @@ import Pressure from "../images/pressure.svg";
 import Humidity from "../images/humidity.svg";
 import Poster from "./Poster";
 import Loading from "./Loading";
+import { motion } from "framer-motion";
 
 const PrimaryInfo = ({ name, temp, description, icon }) => {
   return (
-    <VStack w="100%">
-      <Heading>{name}</Heading>
-      <HStack w="100%" justifyContent="space-around" flexWrap="wrap-reverse">
+    <VStack
+      w="100%"
+      as={motion.div}
+      initial={{ opacity: 0, scaleY: 0 }}
+      animate={{ opacity: 1, scaleY: 1 }}
+    >
+      <Heading as={motion.h1}>{name}</Heading>
+      <HStack
+        w="100%"
+        justifyContent="space-around"
+        flexWrap="wrap-reverse"
+        as={motion.div}
+      >
         <VStack>
           <Heading size="xl">{temp.toFixed()} &deg;C</Heading>
           <Text textTransform="capitalize">{description}</Text>
@@ -32,7 +43,13 @@ const PrimaryInfo = ({ name, temp, description, icon }) => {
 
 const SingleInfo = ({ icon, parameter, value }) => {
   return (
-    <HStack alignItems="flex-start" justifyContent="center">
+    <HStack
+      alignItems="flex-start"
+      justifyContent="center"
+      as={motion.div}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
       <Image src={icon} />
       <VStack alignItems="flex-start">
         <Heading size="md">{parameter}</Heading>

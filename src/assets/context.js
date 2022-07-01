@@ -11,11 +11,10 @@ const AppProvider = ({ children }) => {
 
   const API = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`;
 
-  const fetchWeather = () => {
+  const fetchWeather = async () => {
     setWaiting(false);
     setLoading(true);
-    console.log();
-    axios
+    await axios
       .get(API)
       .then((res) => {
         const data = res.data;

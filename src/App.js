@@ -2,11 +2,9 @@ import "./App.css";
 import SearchArea from "./components/SearchArea";
 import WeatherArea from "./components/WeatherArea";
 import { VStack } from "@chakra-ui/react";
-import { useGlobalContext } from "./assets/context";
+import { motion } from "framer-motion";
 
 function App() {
-  const { weather } = useGlobalContext();
-
   return (
     <VStack p={4} minH="100vh" w="100%" justifyContent="center" bg="#E6EFE9">
       <VStack
@@ -15,9 +13,12 @@ function App() {
         bg="#C8D3D5"
         borderRadius="2xl"
         boxShadow="base"
+        as={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
       >
         <SearchArea />
-        {weather && <WeatherArea />}
+        <WeatherArea />
       </VStack>
     </VStack>
   );
