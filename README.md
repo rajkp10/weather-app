@@ -2,6 +2,14 @@
 
 https://weather-app-rajkp10.netlify.app/
 
+# Tools Used
+
+This site was created using ReactJS, Chakra UI and Framer motion
+
+# Preview
+
+![weather-app](https://user-images.githubusercontent.com/96880670/190869592-e65dd84f-2413-48f1-98be-1cad3144cdf6.jpg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
